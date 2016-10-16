@@ -28,6 +28,9 @@ else if (answer.equals("Dylan")){
 else if (answer.equals("David")){
 	JOptionPane.showMessageDialog(null, "David's superpower is" + " " + David);
 }
+else {
+	JOptionPane.showMessageDialog(null, "You do not have a superpower");
+}
 		// 3. Show the superpower in a pop-up, depending on the name entered. 
 
 
