@@ -13,6 +13,6 @@ public class Icon {
 	}
 
 	static void myMessage(String message) {
-		JOptionPane.showMessageDialog(null, message, "test title", 0, getIcon());
+		JOptionPane.showMessageDialog(null, "\n" + message, "test title", 0, getIcon());
 	}
 }
