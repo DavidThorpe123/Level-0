@@ -5,6 +5,7 @@ public class adventure {
 		int x = 0;
 		int y = 0;
 		boolean seenNote = false;
+		boolean foundKey = false;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("You look around what should you do?");
 		while (true) {
@@ -29,9 +30,14 @@ public class adventure {
 			}
 			if (x == 0 && y == 1) {
 				System.out.println("You see a strange cave will go there?");
-			}
-			else if (x == 0 && y == 2) {
+			} else if (x == 0 && y == 2) {
 				System.out.println("You see a strange chest. Will you attempt to open it?");
+			}
+			if (line.equals("Yes") && !foundKey) {
+				System.out.println("You need a key");
+			}
+			if (line.equals("Yes") && foundKey) {
+				System.out.println("Congrats you found the totem and have beaten this game");
 			}
 			System.out.println("Your coordinates are " + x + " " + y);
 			if (line.equals("Read note") && seenNote) {
