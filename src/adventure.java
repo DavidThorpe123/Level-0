@@ -1,12 +1,17 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class adventure {
 	public static void main(String[] args) {
 		int x = 0;
 		int y = 0;
-		int health = 0;
+		int health = 100;
+		int bosshealth = 100;
+
+		boolean foundBoss = false;
 		boolean seenNote = false;
 		boolean foundKey = false;
+		int boss = new Random().nextInt(4);
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("You look around what should you do?");
 		while (true) {
@@ -38,7 +43,26 @@ public class adventure {
 				System.out.println("You need a key");
 			}
 			if (x == 2 && y == 4) {
-				System.out.println("You have the key keeper!");
+				foundBoss = true;
+				System.out.println("Key Keeper found.");
+			}
+			if (foundBoss == true) {
+
+				boss = new Random().nextInt(5);
+				if (boss == 1 || boss == 3) {
+					health = health - 25;
+				}
+				if (boss == 2 || boss == 4) {
+					bosshealth = bosshealth - 25;
+				}
+				System.out.println("The current boss health is " + bosshealth);
+			}
+			if (health == 0) {
+				System.out.println("You have died. Restart?");
+			}
+			if (bosshealth == 0) {
+				foundKey = true;
+				System.out.println("Congrats! Go collect your prize with the key");
 			}
 			if (line.equals("Yes") && foundKey) {
 				System.out.println("Congrats you found the totem and have beaten this game");
