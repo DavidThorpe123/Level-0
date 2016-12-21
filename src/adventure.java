@@ -4,6 +4,7 @@ public class adventure {
 	public static void main(String[] args) {
 		int x = 0;
 		int y = 0;
+		int health = 0;
 		boolean seenNote = false;
 		boolean foundKey = false;
 		Scanner scanner = new Scanner(System.in);
@@ -36,9 +37,13 @@ public class adventure {
 			if (line.equals("Yes") && !foundKey) {
 				System.out.println("You need a key");
 			}
+			if (x == 2 && y == 4) {
+				System.out.println("You have the key keeper!");
+			}
 			if (line.equals("Yes") && foundKey) {
 				System.out.println("Congrats you found the totem and have beaten this game");
 			}
+			System.out.println("Your current health is " + health);
 			System.out.println("Your coordinates are " + x + " " + y);
 			if (line.equals("Read note") && seenNote) {
 				System.out.println("Say Go North or other directions to move. Enjoy your adventure!");
