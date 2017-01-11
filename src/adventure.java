@@ -7,11 +7,14 @@ public class adventure {
 		int y = 0;
 		int health = 100;
 		int bosshealth = 100;
+		int monsterhealth = 100;
 		int XP = 0;
+		int monster = new Random().nextInt(5);
 		boolean foundBoss = false;
 		boolean seenNote = false;
 		boolean foundKey = false;
 		boolean foundChest = false;
+		boolean foundMonster = false;
 		int boss = new Random().nextInt(4);
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("You look around what should you do?");
@@ -44,6 +47,22 @@ public class adventure {
 				} else if (XP < 25) {
 					System.out.println("Come back when you have more XP. P.S. you can get XP by killing monsters");
 				}
+			}
+			if (x == 3 && y == 0) {
+				System.out.println("There is an ogre up ahead.Fight it?");
+				foundMonster = true;
+			}
+
+			if (line.equals("Yes") && foundMonster == true) {
+				System.out.println("The battle is starting");
+				monster = new Random().nextInt(5);
+				if (monster == 2) {
+					health = health - 25;
+				}
+				if (monster == 1 || monster == 3 || monster == 4) {
+					monsterhealth = monsterhealth - 25;
+				}
+
 			}
 
 			if (x == 0 && y == 1) {
