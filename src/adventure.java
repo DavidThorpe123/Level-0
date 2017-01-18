@@ -1,6 +1,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class adventure {
 	public static void main(String[] args) {
 		int x = 0;
@@ -15,6 +17,7 @@ public class adventure {
 		boolean foundKey = false;
 		boolean foundChest = false;
 		boolean foundMonster = false;
+		boolean dead = false;
 		int boss = new Random().nextInt(4);
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("You look around what should you do?");
@@ -49,13 +52,15 @@ public class adventure {
 				}
 			}
 			if (x == 3 && y == 0) {
-				System.out.println("There is an ogre up ahead.Fight it?");
+				System.out.println("There is an ogre up ahead");
 				foundMonster = true;
 			}
 
-			if (line.equals("Yes") && foundMonster == true) {
+			if (foundMonster == true) {
 				System.out.println("The battle is starting");
+				System.out.println("The Monster Health is " + monsterhealth);
 				monster = new Random().nextInt(5);
+				System.out.println(monsterhealth);
 				if (monster == 2) {
 					health = health - 25;
 				}
@@ -63,6 +68,9 @@ public class adventure {
 					monsterhealth = monsterhealth - 25;
 				}
 
+			}
+			if (monsterhealth == 0) {
+				XP = XP + 50;
 			}
 
 			if (x == 0 && y == 1) {
@@ -91,6 +99,10 @@ public class adventure {
 			}
 			if (health == 0) {
 				System.out.println("You have died. Restart?");
+				dead = true;
+			}
+			if (line.equalsIgnoreCase("Yes") && dead) {
+				JOptionPane.showConfirmDialog(null, "  ");
 			}
 			if (bosshealth == 0) {
 				foundKey = true;
